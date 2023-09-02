@@ -14,6 +14,16 @@ dependencies:
   carousel_slider:
   percent_indicator:
   flutter_localization: ^0.1.13
+  flutter_bloc: 
+  bloc: 
+  equatable: 
+  dartz: 
+  internet_connection_checker: 
+  shared_preferences: 
+  get_it: 
+  firebase_core: 
+  cloud_firestore: 
+  firebase_auth: 
 
 dev_dependencies:
   flutter_test:

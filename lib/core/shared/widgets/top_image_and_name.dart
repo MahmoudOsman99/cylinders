@@ -11,8 +11,10 @@ class TopImageAndName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CircleAvatar(
               radius: 30,
@@ -24,6 +26,9 @@ class TopImageAndName extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 5,
+                ),
                 Text(
                   'أهلا بيك في قسم السلندرات',
                   style: context.textList.labelSmall,

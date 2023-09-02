@@ -1,3 +1,4 @@
 class CollectionsName {
-  static const troubleshootCollectionName = 'troubleshoot';
+  static const troubleshootCollectionName = 'troubleshoots';
+  static const questionsCollectionName = 'questions';
 }

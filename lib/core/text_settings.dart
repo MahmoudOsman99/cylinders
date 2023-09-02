@@ -7,6 +7,7 @@ TextTheme textSettings = const TextTheme(
       fontSize: 60,
       color: AppColors.blackTextColor,
       fontWeight: FontWeight.w500,
+      fontFamily: 'customArabic',
     ),
     displayMedium: TextStyle(
       fontSize: 18,
@@ -16,14 +17,17 @@ TextTheme textSettings = const TextTheme(
     bodySmall: TextStyle(
       fontSize: 16,
       color: AppColors.blackTextColor,
+      fontFamily: 'customArabic',
     ),
     bodyLarge: TextStyle(
       fontSize: 32,
       color: AppColors.blackTextColor,
+      fontFamily: 'customArabic',
     ),
     labelLarge: TextStyle(
       fontSize: 24,
       color: Colors.white,
+      fontFamily: 'customArabic',
     ),
     bodyMedium: TextStyle(
       fontSize: 16,

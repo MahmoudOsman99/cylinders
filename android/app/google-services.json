@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461209226052",
+    "project_id": "cylinders-53542",
+    "storage_bucket": "cylinders-53542.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461209226052:android:0f6c2ccd7d1b9c00e6a511",
+        "android_client_info": {
+          "package_name": "com.example.cylinders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461209226052-a5mufchdfre5eqi7j60ahkqqtddmiqov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsi8GCgKO_8iAQwYguNJfJTuaBV2NqjuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461209226052-a5mufchdfre5eqi7j60ahkqqtddmiqov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

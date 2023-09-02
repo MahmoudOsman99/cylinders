@@ -1,3 +1,4 @@
+import 'package:cylinders/core/shared/strings/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,5 +16,6 @@ ThemeData lightTheme = ThemeData(
       statusBarColor: Colors.transparent,
     ),
   ),
+  primaryColor: AppColors.lightOrangeColor,
   inputDecorationTheme: inputDecorationTheme,
 );
