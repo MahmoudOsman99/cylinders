@@ -2,8 +2,8 @@ import 'package:cylinders/core/shared/strings/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../core/input_decoration_settings.dart';
-import '../../core/text_settings.dart';
+import 'input_decoration_settings.dart';
+import 'text_settings.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,

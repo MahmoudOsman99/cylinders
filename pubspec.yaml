@@ -24,6 +24,10 @@ dependencies:
   firebase_core: 
   cloud_firestore: 
   firebase_auth: 
+  firebase_storage: 
+  image_picker: 
+  photo_view: 
+ 
 
 dev_dependencies:
   flutter_test:

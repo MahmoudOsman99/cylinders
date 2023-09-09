@@ -1,70 +1,51 @@
-import 'package:cylinders/features/questions/data/datasources/remote/questions_remote_data.dart';
-import 'package:cylinders/features/questions/data/repositories/questions_repository_impl.dart';
-import 'package:cylinders/features/questions/domain/repositories/question_repository.dart';
-import 'package:cylinders/features/questions/domain/usecases/add_question_usecase.dart';
-import 'package:cylinders/features/questions/domain/usecases/all_questions_usecase.dart';
-import 'package:cylinders/features/questions/presentation/cubit/questions_cubit.dart';
+import 'package:cylinders/features/screw_m/presentation/cubit/key_m_cubit.dart';
+import 'package:cylinders/features/troubleshoots/data/datasources/remote/troubleshoots_remote_data.dart';
+import 'package:cylinders/features/troubleshoots/domain/repositories/troubleshoot_repository.dart';
+import 'package:cylinders/features/troubleshoots/domain/usecases/add_troubleshoots_usecase.dart';
+import 'package:cylinders/features/troubleshoots/domain/usecases/all_troubleshoots_usecase.dart';
+import 'package:cylinders/features/troubleshoots/presentation/cubit/troubleshoots_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/network/internet_info.dart';
+import 'features/troubleshoots/data/repositories/troubleshoots_repository_impl.dart';
+import 'features/troubleshoots/domain/usecases/update_troubleshoots_usecase.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //! Features - Questions
+  //! Features - Troubleshoots
   // Cubit
-  sl.registerFactory<QuestionsCubit>(() => QuestionsCubit(
-        getAllQuestionsUsecase: sl(),
-        addQuestionUsecase: sl(),
+  sl.registerFactory<TroubleshootsCubit>(() => TroubleshootsCubit(
+        getAllTroubleshootsUsecase: sl(),
+        addTroubleshootUsecase: sl(),
+        updateTroubleshootUsecase: sl(),
       ));
 
   //UseCases
-  sl.registerLazySingleton(() => GetAllQuestionsUsecase(repo: sl()));
-  sl.registerLazySingleton(() => AddQuestionUseCase(repo: sl()));
+  sl.registerLazySingleton(() => GetAllTroubleshootsUsecase(repo: sl()));
+  sl.registerLazySingleton(() => AddTroubleshootUseCase(repo: sl()));
+  sl.registerLazySingleton(() => UpdateTroubleshootUseCase(repo: sl()));
 
   // Repositories
-  sl.registerLazySingleton<QuestionRepository>(() => QuestionRepositoryImpl(
-        netInfo: sl(),
-        questionRemote: sl(),
-      ));
+  sl.registerLazySingleton<TroubleshootRepository>(
+      () => TroubleshootRepositoryImpl(
+            netInfo: sl(),
+            troubleshootRemote: sl(),
+          ));
 
   // DataSources
-  sl.registerLazySingleton<QuestionsRemoteDataSource>(
-      () => QuestionsRemoteDataSource());
+  sl.registerLazySingleton<TroubleshootsRemoteDataSource>(
+      () => TroubleshootsRemoteDataSource());
 
 //   sl.registerLazySingleton<ProductLocalDataSource>(
 //       () => DeviceLocalDataSourceImplSharedPref(sharedPref: sl()));
 
-//   //! Features - Employees
-//   // Bloc
-//   sl.registerFactory(() => EmployeessBloc(
-//         getAllEmployeesUseCase: sl(),
-//         addEmployeeUsecase: sl(),
-//         getOneEmployeeByIdUseCase: sl(),
-//       ));
-
-//   //UseCases
-
-//   sl.registerLazySingleton(() => GetAllEmployeesUsecase(sl()));
-//   sl.registerLazySingleton(() => GetOneEmployeeByIdUseCase(sl()));
-//   sl.registerLazySingleton(() => AddEmployeeUsecase(sl()));
-
-//   // Repositories
-//   sl.registerLazySingleton<EmployeeRepository>(() => EmployeesRepositoryImpl(
-//         employeeRemoteDatasource: sl(),
-//         employeeLocalDatasource: sl(),
-//         networkInfo: sl(),
-//       ));
-
-//   // DataSources
-//   sl.registerLazySingleton<EmployeesRemoteDatasource>(
-//       () => EmployeesRemoteDatasourceImplFirebase(networkInfo: sl()));
-
-//   sl.registerLazySingleton<EmployeeLocalDataSource>(
-//       () => EmployeeLocalDataSourceImpl(sharedPref: sl()));
+  //! Features - KeyAndMCubit
+  // Bloc
+  sl.registerFactory(() => KeyAndMCubit());
 
 //   //! Features - Installments
 //   // Bloc

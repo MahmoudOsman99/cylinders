@@ -10,10 +10,12 @@ class DefaultTextFormField extends StatelessWidget {
     this.validator,
     this.inputAction,
     this.inputType,
-    this.isPassword,
+    this.isPassword = false,
+    this.isReadOnly = false,
     this.controller,
     this.minLines,
     this.maxLines,
+    this.textAlign,
   });
 
   // bool showSnackBarErrorText = true;
@@ -24,8 +26,10 @@ class DefaultTextFormField extends StatelessWidget {
   String? label;
   String? Function(String? value)? validator;
   bool? isPassword = false;
+  bool isReadOnly = false;
   TextInputType? inputType = TextInputType.text;
   TextInputAction? inputAction = TextInputAction.next;
+  TextAlign? textAlign = TextAlign.center;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +40,7 @@ class DefaultTextFormField extends StatelessWidget {
         minLines: minLines,
         maxLines: maxLines,
         controller: controller,
+        readOnly: isReadOnly,
         style: context.textList.bodyMedium!.copyWith(
           color: AppColors.blackTextColor,
         ),
@@ -58,7 +63,7 @@ class DefaultTextFormField extends StatelessWidget {
         //   }
         //   return null;
         // },
-        textAlign: TextAlign.center,
+        textAlign: textAlign ?? TextAlign.start,
 
         // keyboardType:
         //     const TextInputType.numberWithOptions(),

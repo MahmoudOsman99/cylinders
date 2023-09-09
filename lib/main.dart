@@ -2,8 +2,7 @@ import 'package:cylinders/config/routes/app_router.dart';
 import 'package:cylinders/config/routes/routes.dart';
 import 'package:cylinders/config/theme/light_theme.dart';
 import 'package:cylinders/features/gap_feature/presentation/cubit/gap_cubit.dart';
-import 'package:cylinders/features/questions/presentation/cubit/questions_cubit.dart';
-import 'package:cylinders/features/questions/presentation/screens/test.dart';
+import 'package:cylinders/features/troubleshoots/presentation/cubit/troubleshoots_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
         //   create: (context) => GapCubit(),
         // ),
         BlocProvider(
-          create: (context) => di.sl<QuestionsCubit>(),
+          create: (context) => di.sl<TroubleshootsCubit>(),
         ),
       ],
       child: MaterialApp(

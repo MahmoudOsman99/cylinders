@@ -1,6 +1,8 @@
 import 'package:cylinders/core/shared/strings/app_assets.dart';
 import 'package:cylinders/extensions/app_extentions.dart';
+import 'package:cylinders/features/bearing_types/presentation/screens/bearing_types_screen.dart';
 import 'package:cylinders/features/gap_feature/presentation/screens/get_gap_screen.dart';
+import 'package:cylinders/features/troubleshoots/presentation/screens/troubleshoots_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'config/routes/routes.dart';
@@ -119,7 +121,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.questionRoute);
+                    Navigator.pushNamed(context, TroubleshootsScreen.routeName);
                   },
                   child: SizedBox(
                     width: 150,
@@ -202,6 +204,60 @@ class HomeScreen extends StatelessWidget {
                               child: Center(
                                 child: Text(
                                   'اسئلة و معلومات',
+                                  style: context.textList.bodyMedium!.copyWith(
+                                    color: AppColors.blackTextColor,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, BearingTypeScreen.routeName);
+                  },
+                  child: SizedBox(
+                    width: 150,
+                    // height: 190,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Image.asset(
+                                AppAssets.bearingIconImage,
+                                fit: BoxFit.cover,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: context.height * 0.01,
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 40,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                color:
+                                    AppColors.blackTextColor.withOpacity(0.3),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'البلي و انواعه',
                                   style: context.textList.bodyMedium!.copyWith(
                                     color: AppColors.blackTextColor,
                                     fontSize: 18,
