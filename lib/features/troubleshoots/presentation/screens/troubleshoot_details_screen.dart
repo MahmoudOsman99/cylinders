@@ -197,7 +197,7 @@ class _TroubleshootDetailsScreenState extends State<TroubleshootDetailsScreen> {
                 },
               );
             },
-            backgroundColor: AppColors.lightOrangeColor,
+            backgroundColor: AppColors.purpleColor,
             child: const Icon(
               Icons.edit,
             ),

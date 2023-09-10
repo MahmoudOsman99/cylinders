@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:cylinders/core/shared/strings/app_assets.dart';
+import 'package:cylinders/core/shared/widgets/default_button.dart';
+import 'package:cylinders/core/shared/widgets/top_image_and_name.dart';
 import 'package:cylinders/extensions/app_extentions.dart';
 import 'package:cylinders/features/troubleshoots/presentation/cubit/troubleshoots_cubit.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +36,7 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
     problemNameController.dispose();
     descriptionController.dispose();
     solveingController.dispose();
+    photoController.dispose();
     super.dispose();
   }
 
@@ -44,6 +47,7 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
       builder: (context, state) {
         var tCubit = TroubleshootsCubit.get(context);
         return Scaffold(
+          backgroundColor: AppColors.blackgroundColor,
           body: SafeArea(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -58,24 +62,26 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                         horizontal: 10, vertical: 10),
                     child: Column(
                       children: [
-                        SizedBox(
-                          height: 60,
-                          width: double.infinity,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: AppColors.lightOrangeColor,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'اكتب المشكله و الحل',
-                                style: context.textList.bodyMedium!.copyWith(
-                                  color: AppColors.blackTextColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        TopImageAndName(),
+                        // SizedBox(
+                        //   height: 60,
+                        //   width: double.infinity,
+                        //   child: DecoratedBox(
+                        //     decoration: BoxDecoration(
+                        //       // color: AppColors.lightOrangeColor,
+                        //       gradient: AppColors.gradientPurple,
+                        //       borderRadius: BorderRadius.circular(15),
+                        //     ),
+                        //     child: Center(
+                        //       child: Text(
+                        //         'اكتب المشكله و الحل',
+                        //         style: context.textList.bodyMedium!.copyWith(
+                        //             // color: AppColors.blackTextColor,
+                        //             ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         if (file == null)
                           InkWell(
                             onTap: () async {
@@ -104,7 +110,8 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                               controller: photoController,
                               enableRotation: true,
                               backgroundDecoration: const BoxDecoration(
-                                  color: AppColors.whiteColor),
+                                color: AppColors.whiteColor,
+                              ),
                               imageProvider: FileImage(file!),
                             ),
                           ),
@@ -121,6 +128,7 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                               return null;
                             }
                           },
+                          darkTheme: true,
                         ),
                         SizedBox(
                           height: context.height * 0.03,
@@ -128,6 +136,7 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                         DefaultTextFormField(
                           controller: descriptionController,
                           label: 'وصف المشكلة',
+                          darkTheme: true,
                           validator: (value) {
                             if (value!.trim().isEmpty) {
                               return 'اكتب وصف المشكلة';
@@ -145,6 +154,7 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                           maxLines: 6,
                           label: 'الحل',
                           inputType: TextInputType.multiline,
+                          darkTheme: true,
                           validator: (value) {
                             if (value!.trim().isEmpty) {
                               // showSnackBar(
@@ -160,8 +170,9 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                         SizedBox(
                           height: context.height * 0.05,
                         ),
-                        InkWell(
-                          onTap: () {
+                        DefaultButton(
+                          label: 'حفظ المشكلة و الحل',
+                          onPressed: () {
                             if (formKey.currentState!.validate()) {
                               tCubit.addTroubleshoot(
                                 Troubleshoot(
@@ -173,20 +184,37 @@ class _HandleTroubleshootScreenState extends State<HandleTroubleshootScreen> {
                               Navigator.pop(context);
                             }
                           },
-                          child: SizedBox(
-                            height: 50,
-                            width: context.width / 2,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: AppColors.lightGreenColor,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: const Center(
-                                child: Text('تسسجل المشكلة و الحل'),
-                              ),
-                            ),
-                          ),
+                          width: context.width / 2,
+                          gradient: AppColors.gradientPurple,
+                          paddingValue: 15,
                         ),
+                        // InkWell(
+                        //   onTap: () {
+                        //     if (formKey.currentState!.validate()) {
+                        //       tCubit.addTroubleshoot(
+                        //         Troubleshoot(
+                        //           name: problemNameController.text,
+                        //           descrition: descriptionController.text,
+                        //           solve: solveingController.text,
+                        //         ),
+                        //       );
+                        //       Navigator.pop(context);
+                        //     }
+                        //   },
+                        //   child: SizedBox(
+                        //     height: 50,
+                        //     width: context.width / 2,
+                        //     child: DecoratedBox(
+                        //       decoration: BoxDecoration(
+                        //         color: AppColors.lightGreenColor,
+                        //         borderRadius: BorderRadius.circular(15),
+                        //       ),
+                        //       child: const Center(
+                        //         child: Text('تسسجل المشكلة و الحل'),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),

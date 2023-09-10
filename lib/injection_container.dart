@@ -1,3 +1,7 @@
+import 'package:cylinders/features/bearing_types/data/datasources/remote/bearing_remote_datasource_impl.dart';
+import 'package:cylinders/features/bearing_types/domain/repositories/bearing_repository.dart';
+import 'package:cylinders/features/bearing_types/domain/usecases/add_bearing_usecase.dart';
+import 'package:cylinders/features/bearing_types/presentation/cubit/bearing_types_cubit.dart';
 import 'package:cylinders/features/screw_m/presentation/cubit/key_m_cubit.dart';
 import 'package:cylinders/features/troubleshoots/data/datasources/remote/troubleshoots_remote_data.dart';
 import 'package:cylinders/features/troubleshoots/domain/repositories/troubleshoot_repository.dart';
@@ -10,6 +14,8 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/network/internet_info.dart';
+import 'features/bearing_types/data/datasources/remote/bearing_remote_datasource.dart';
+import 'features/bearing_types/data/repositories/bearing_repository_impl.dart';
 import 'features/troubleshoots/data/repositories/troubleshoots_repository_impl.dart';
 import 'features/troubleshoots/domain/usecases/update_troubleshoots_usecase.dart';
 
@@ -87,28 +93,25 @@ Future<void> init() async {
 //   // sl.registerLazySingleton<InstallmentsRemoteDataSource>(
 //   //     () => InstallmentsLocalDataSource(sharedPref: sl()));
 
-//   //! Features - Client
-//   // Bloc
-//   sl.registerFactory(() => InstallmentHistoryCubit(
-//         getOneClientUseCase: sl(),
-//         getAllInstallHistoryUseCase: sl(),
-//         getAllInstallmentsUsecase: sl(),
-//       ));
+  //! Features - Bearing
+  // Bloc
+  sl.registerFactory(() => BearingTypesCubit(
+        addBearingUseCase: sl(),
+      ));
 
-//   //UseCases
+  //UseCases
 
-//   sl.registerLazySingleton(() => GetAllInstallHistoryUseCase(repo: sl()));
+  sl.registerLazySingleton(() => AddBearingUseCase(repo: sl()));
 
-//   // Repositories
-//   sl.registerLazySingleton<InstallmentHistoryRepository>(
-//       () => InstallmentHistoryRepositoryImpl(
-//             installmentHistoryRemoteDatasource: sl(),
-//             networkInfo: sl(),
-//           ));
+  // Repositories
+  sl.registerLazySingleton<BearingRepository>(() => BearingRepositoryImpl(
+        bearingRemote: sl(),
+        networkInfo: sl(),
+      ));
 
-//   // DataSources
-//   sl.registerLazySingleton<InstallmentHistoryRemoteDatasource>(
-//       () => InstallmentHistoryRemoteDatasourceImplFirebase());
+  // DataSources
+  sl.registerLazySingleton<BearingRemoteDataSource>(
+      () => BearingRemoteDataSourceImplWithFirebase());
 
 //   //! Features - Client
 //   // Bloc

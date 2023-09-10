@@ -1,9 +1,10 @@
+import 'package:cylinders/features/bearing_types/presentation/widgets/bearing-types.dart';
 import 'package:equatable/equatable.dart';
 
 class Bearing extends Equatable {
   late String? ID;
   late String name;
-  late BearingTypes type;
+  late int type;
   late String usage;
   late double startClearance;
   late double endClearance;
@@ -45,3 +46,5 @@ enum BearingTypes {
   Tapered,
   Needle
 }
+
+// List<String> bearingTypesArabic = BearingTypes.values;

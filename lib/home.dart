@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: AppColors.greyColor,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -170,60 +171,6 @@ class HomeScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    // Navigator.pushNamed(context, Routes.screwAndMRoute);
-                  },
-                  child: SizedBox(
-                    width: 150,
-                    // height: 190,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Image.asset(
-                                AppAssets.questionIconImage,
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: context.height * 0.01,
-                          ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: 40,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color:
-                                    AppColors.blackTextColor.withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'اسئلة و معلومات',
-                                  style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                  onTap: () {
                     Navigator.pushNamed(context, BearingTypeScreen.routeName);
                   },
                   child: SizedBox(
@@ -271,8 +218,111 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                // InkWell(
+                //   onTap: () {
+                //     // Navigator.pushNamed(context, Routes.screwAndMRoute);
+                //   },
+                //   child: SizedBox(
+                //     width: 150,
+                //     // height: 190,
+                //     child: DecoratedBox(
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(15),
+                //       ),
+                //       child: Column(
+                //         children: [
+                //           Stack(
+                //             children: [
+                //               Image.asset(
+                //                 AppAssets.questionIconImage,
+                //                 fit: BoxFit.cover,
+                //               ),
+                //             ],
+                //           ),
+                //           SizedBox(
+                //             height: context.height * 0.01,
+                //           ),
+                //           SizedBox(
+                //             width: double.infinity,
+                //             height: 40,
+                //             child: DecoratedBox(
+                //               decoration: BoxDecoration(
+                //                 color:
+                //                     AppColors.blackTextColor.withOpacity(0.3),
+                //                 borderRadius: BorderRadius.circular(10),
+                //               ),
+                //               child: Center(
+                //                 child: Text(
+                //                   'اسئلة و معلومات',
+                //                   style: context.textList.bodyMedium!.copyWith(
+                //                     color: AppColors.blackTextColor,
+                //                     fontSize: 18,
+                //                   ),
+                //                 ),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     InkWell(
+            //       onTap: () {
+            //         Navigator.pushNamed(context, BearingTypeScreen.routeName);
+            //       },
+            //       child: SizedBox(
+            //         width: 150,
+            //         // height: 190,
+            //         child: DecoratedBox(
+            //           decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.circular(15),
+            //           ),
+            //           child: Column(
+            //             children: [
+            //               Stack(
+            //                 children: [
+            //                   Image.asset(
+            //                     AppAssets.bearingIconImage,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                 ],
+            //               ),
+            //               SizedBox(
+            //                 height: context.height * 0.01,
+            //               ),
+            //               SizedBox(
+            //                 width: double.infinity,
+            //                 height: 40,
+            //                 child: DecoratedBox(
+            //                   decoration: BoxDecoration(
+            //                     color:
+            //                         AppColors.blackTextColor.withOpacity(0.3),
+            //                     borderRadius: BorderRadius.circular(10),
+            //                   ),
+            //                   child: Center(
+            //                     child: Text(
+            //                       'البلي و انواعه',
+            //                       style: context.textList.bodyMedium!.copyWith(
+            //                         color: AppColors.blackTextColor,
+            //                         fontSize: 18,
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
               width: context.width,
               height: 0,

@@ -14,7 +14,7 @@ class BearingType {
   static List<Bearing> bearings = [
     Bearing(
       name: 'Cylindrical double row',
-      type: BearingTypes.Cylindrical,
+      type: BearingTypes.Cylindrical.index,
       usage:
           'it works on radial load only and it works fine with high speed invironment',
       startClearance: 0.15,
@@ -25,7 +25,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Angular Contact ball bearing single row',
-      type: BearingTypes.AngularContact,
+      type: BearingTypes.AngularContact.index,
       usage:
           'it works in both directions, axial and radial, but the prefered is axial directional and it works fine with high speed invironment',
       startClearance: 0.1,
@@ -36,7 +36,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Deep groove single row',
-      type: BearingTypes.DeepGroove,
+      type: BearingTypes.DeepGroove.index,
       usage:
           'it works in both directions, axial and radial, it works to prevent the vibrations on the area that\'s it works in,and it works fine with high speed invironment',
       startClearance: 0.1,
@@ -47,7 +47,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Spherical roller bearing',
-      type: BearingTypes.Spherical,
+      type: BearingTypes.Spherical.index,
       usage:
           'it works in both directiona, axial and radial, it works fine with high load invironment',
       startClearance: 0.15,
@@ -58,7 +58,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Thrust cylindrical roller bearing',
-      type: BearingTypes.Thrust,
+      type: BearingTypes.Thrust.index,
       usage:
           'it works in axial direction only, and it used for heavy axial loads versus of angular contact that works in axial and light radial load, it works fine with high load invironment',
       numCat: 'Like 3....',
@@ -69,7 +69,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Tapered bearing',
-      type: BearingTypes.Tapered,
+      type: BearingTypes.Tapered.index,
       usage:
           'it works in both directions, axial and radial, the prefered working environment is in gearboxs and it works fine with heavy load invironment',
       numCat: 'Like 5.....',
@@ -80,7 +80,7 @@ class BearingType {
     ),
     Bearing(
       name: 'Needle roller bearing ',
-      type: BearingTypes.Needle,
+      type: BearingTypes.Needle.index,
       usage:
           'it works in one direction, only radial, and it works fine with heavy load invironment',
       startClearance: 0.1,

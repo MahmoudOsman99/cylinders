@@ -8,17 +8,36 @@ import 'package:dartz/dartz.dart';
 import 'bearing_remote_datasource.dart';
 
 class BearingRemoteDataSourceImplWithFirebase extends BearingRemoteDataSource {
-  final db = FirebaseFirestore.instance;
+  final dbBearing = FirebaseFirestore.instance
+      .collection(CollectionsName.bearingsCollectionName);
 
   @override
   Future<Unit> addBearing({required Bearing bearing}) async {
-    await db
-        .collection(CollectionsName.bearingsCollectionName)
-        .add(BearingModel.toJson(bearing))
-        .then((value) {})
-        .catchError((onError) {
-      // return Future.value(onError);
-    });
+    try {
+      print(bearing.name);
+      await dbBearing.add(BearingModel.toJson(bearing));
+      print('added');
+    } catch (e) {
+      print(e.toString());
+    }
     return Future.value(unit);
   }
 }
+
+/**class BearingRemoteDataSourceImplWithFirebase extends BearingRemoteDataSource {
+  final dbBearing = FirebaseFirestore.instance
+      .collection(CollectionsName.bearingsCollectionName);
+
+  @override
+  Future<void> addBearing({required Bearing bearing}) async {
+    try {
+      print(bearing.name);
+      await dbBearing.add(BearingModel.toJson(bearing));
+      print('Bearing added successfully');
+    } catch (error) {
+      print('Error adding bearing: $error');
+      // Rethrow or handle the error as needed
+      throw error;
+    }
+  }
+} */

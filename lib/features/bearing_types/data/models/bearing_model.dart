@@ -27,11 +27,13 @@ class BearingModel extends Bearing {
   static Map<String, dynamic> toJson(Bearing bearing) {
     return {
       'name': bearing.name,
-      'type': bearing.type,
+      'type': BearingTypes.values[bearing.type].index,
       'usage': bearing.usage,
       'startClearance': bearing.startClearance,
       'endClearance': bearing.endClearance,
       'isRadial': bearing.isRadial,
+      'numCat': bearing.numCat,
+      // 'image': bearing.image,
     };
   }
 }

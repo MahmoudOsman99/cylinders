@@ -9,14 +9,14 @@ InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(15),
     borderSide: const BorderSide(
-      color: AppColors.lightOrangeColor,
+      color: AppColors.lightPurpleColor,
       width: 2,
     ),
   ),
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(15),
     borderSide: const BorderSide(
-      color: AppColors.lightOrangeColor,
+      color: AppColors.lightPurpleColor,
       width: 2,
     ),
   ),
@@ -28,12 +28,12 @@ InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
     ),
   ),
   focusedErrorBorder: inputBorder(
-    color: AppColors.lightOrangeColor,
+    color: AppColors.lightPurpleColor,
   ),
 );
 
 inputBorder({
-  Color color = AppColors.lightOrangeColor,
+  Color color = AppColors.lightPurpleColor,
 }) =>
     OutlineInputBorder(
       borderRadius: BorderRadius.circular(15),

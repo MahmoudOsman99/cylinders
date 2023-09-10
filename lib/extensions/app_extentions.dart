@@ -8,3 +8,12 @@ extension Size on BuildContext {
 extension TextStyleList on BuildContext {
   TextTheme get textList => Theme.of(this).textTheme;
 }
+
+extension TextFieldValidation on TextFormField {
+  // bool validate(String Function(String value) customValidator) {
+  //   if (this.controller!.text == null || this.controller!.text.isEmpty) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
+}

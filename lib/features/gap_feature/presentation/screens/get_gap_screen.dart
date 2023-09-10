@@ -1,5 +1,6 @@
 import 'package:cylinders/core/shared/strings/app_assets.dart';
 import 'package:cylinders/core/shared/strings/app_colors.dart';
+import 'package:cylinders/core/shared/widgets/default_button.dart';
 import 'package:cylinders/core/shared/widgets/top_image_and_name.dart';
 import 'package:cylinders/extensions/app_extentions.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 decoration: BoxDecoration(
                                   color: isFlat
                                       ? AppColors.whiteColor
-                                      : AppColors.lightOrangeColor,
+                                      : AppColors.lightPurpleColor,
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Center(
@@ -77,7 +78,9 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                     'مشرشر',
                                     style:
                                         context.textList.bodyMedium!.copyWith(
-                                      color: AppColors.blackTextColor,
+                                      color: isFlat
+                                          ? AppColors.blackTextColor
+                                          : AppColors.whiteColor,
                                     ),
                                   ),
                                 ),
@@ -96,7 +99,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   color: isFlat
-                                      ? AppColors.lightOrangeColor
+                                      ? AppColors.lightPurpleColor
                                       : AppColors.whiteColor,
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -105,7 +108,9 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                     'فلات',
                                     style:
                                         context.textList.bodyMedium!.copyWith(
-                                      color: AppColors.blackTextColor,
+                                      color: isFlat
+                                          ? AppColors.whiteColor
+                                          : AppColors.blackTextColor,
                                     ),
                                   ),
                                 ),
@@ -132,7 +137,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                               color: AppColors.blackTextColor,
                             ),
                             validator: (value) {
-                              if (value!.isEmpty) {
+                              if (value == null || value.isEmpty) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text(
@@ -142,7 +147,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                     backgroundColor: AppColors.lightRedColor,
                                   ),
                                 );
-                                // return 'اكتب قطر صحيح';
+                                return 'اكتب قطر صحيح';
                               } else if (double.tryParse(value)! > 275) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
@@ -180,8 +185,10 @@ class _GetGapScreenState extends State<GetGapScreen> {
                       SizedBox(
                         height: 30,
                       ),
-                      InkWell(
-                        onTap: () {
+                      DefaultButton(
+                        label: 'احسب الجاب',
+                        gradient: AppColors.gradientPurple,
+                        onPressed: () {
                           if (formKey.currentState!.validate()) {
                             radiusCylinder =
                                 double.tryParse(radiusController.text)!;
@@ -216,20 +223,25 @@ class _GetGapScreenState extends State<GetGapScreen> {
                             }
                           }
                         },
-                        child: SizedBox(
-                          height: 50,
-                          width: context.width / 2,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: AppColors.lightGreenColor,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: const Center(
-                              child: Text('احسب الجاب'),
-                            ),
-                          ),
-                        ),
+                        width: context.width / 2,
+                        paddingValue: 15,
                       ),
+                      // InkWell(
+                      //   onTap: ,
+                      //   child: SizedBox(
+                      //     height: 50,
+                      //     width: context.width / 2,
+                      //     child: DecoratedBox(
+                      //       decoration: BoxDecoration(
+                      //         color: AppColors.lightGreenColor,
+                      //         borderRadius: BorderRadius.circular(15),
+                      //       ),
+                      //       child: const Center(
+                      //         child: Text('احسب الجاب'),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -238,8 +250,8 @@ class _GetGapScreenState extends State<GetGapScreen> {
                 height: context.height * 0.7,
                 child: Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: AppColors.whiteColor,
+                  decoration: BoxDecoration(
+                    color: AppColors.greyColor,
                     borderRadius: BorderRadiusDirectional.only(
                       topStart: Radius.circular(40),
                       topEnd: Radius.circular(40),
@@ -335,7 +347,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 ),
                               ),
                               circularStrokeCap: CircularStrokeCap.round,
-                              progressColor: AppColors.lightOrangeColor,
+                              progressColor: AppColors.lightPurpleColor,
                             ),
                           ],
                         ),
@@ -436,7 +448,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 ),
                               ),
                               circularStrokeCap: CircularStrokeCap.round,
-                              progressColor: AppColors.lightOrangeColor,
+                              progressColor: AppColors.lightPurpleColor,
                             ),
                           ],
                         ),

@@ -46,26 +46,28 @@ class BearingTypeDetailsScreen extends StatelessWidget {
                   height: context.height * 0.02,
                 ),
                 BearingSpecsItemWidget(
-                  lable: 'Name',
+                  lable: 'أسم البلية',
                   value: bearing.name,
                 ),
                 BearingSpecsItemWidget(
-                  lable: 'Type',
-                  value: BearingTypes.values
-                      .singleWhere((b) => b == bearing.type)
-                      .name,
+                  lable: 'النوع',
+                  value: BearingTypes.values[bearing.type].name,
                 ),
                 BearingSpecsItemWidget(
-                  lable: 'Usage',
+                  lable: 'الأستخدامات',
                   value: bearing.usage,
                 ),
                 BearingSpecsItemWidget(
-                  lable: 'Start Clearance',
-                  value: '${bearing.startClearance.toString()} mm',
+                  lable: 'بداية الخلوص',
+                  value: '${bearing.startClearance.toStringAsFixed(2)} mm',
                 ),
                 BearingSpecsItemWidget(
-                  lable: 'End Clearance',
-                  value: 'mm ${bearing.endClearance.toString()}',
+                  lable: 'نهاية الخلوص',
+                  value: 'mm ${bearing.endClearance.toStringAsFixed(2)}',
+                ),
+                BearingSpecsItemWidget(
+                  lable: 'مثال لأول رقم',
+                  value: bearing.numCat,
                 ),
               ],
             ),
@@ -102,7 +104,7 @@ class BearingSpecsItemWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: context.width,
@@ -111,6 +113,7 @@ class BearingSpecsItemWidget extends StatelessWidget {
               DecoratedBox(
                 decoration: BoxDecoration(
                   color: AppColors.lightOrangeColor,
+                  // gradient: AppColors.gradientPurple,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Padding(

@@ -8,6 +8,13 @@ class AppColors {
   static const Color lightRedColor = Color(0xffff5454);
   static const Color lightOrangeColor = Color(0xffffca45);
   static const Color orangeColor = Colors.orange;
-  // static const Color yellowColor = Colors.purple;
+  static const Color purpleColor = Colors.purple;
   static const Color lightGreenColor = Color(0xff5aec6a);
+  static const Color lightPurpleColor = Color(0xffd208fe);
+  static const Gradient gradientPurple = LinearGradient(
+    colors: [
+      purpleColor,
+      lightPurpleColor,
+    ],
+  );
 }

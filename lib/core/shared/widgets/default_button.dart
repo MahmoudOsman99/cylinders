@@ -6,27 +6,36 @@ class DefaultButton extends StatelessWidget {
     super.key,
     required this.label,
     required this.onPressed,
-    required this.backColor,
+    this.backColor,
+    required this.width,
+    this.paddingValue = 10,
+    this.gradient,
   });
   String label;
   Function() onPressed;
-  Color backColor;
+  Color? backColor;
+  Gradient? gradient;
+  double paddingValue;
+  double width;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
       child: SizedBox(
-        width: context.width,
-        height: context.height * 0.07,
+        width: width,
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: backColor,
+            color: gradient == null ? backColor : null,
+            gradient: gradient,
           ),
           child: Center(
-            child: Text(
-              label,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: paddingValue),
+              child: Text(
+                label,
+              ),
             ),
           ),
         ),

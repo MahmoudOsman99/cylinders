@@ -17,6 +17,7 @@ class DefaultTextFormField extends StatelessWidget {
     this.maxLines,
     this.textAlign,
     this.darkTheme = false,
+    this.paddingValue = 10,
   });
 
   // bool showSnackBarErrorText = true;
@@ -33,12 +34,12 @@ class DefaultTextFormField extends StatelessWidget {
   TextAlign? textAlign = TextAlign.center;
   Color? backColor = AppColors.whiteColor;
   bool darkTheme = false;
+  double paddingValue = 10;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // width: context.width / 2,
-      // height: 60,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: paddingValue),
       child: TextFormField(
         minLines: minLines,
         maxLines: maxLines,

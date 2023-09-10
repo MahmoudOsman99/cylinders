@@ -1,3 +1,4 @@
+import 'package:cylinders/core/shared/widgets/default_button.dart';
 import 'package:cylinders/core/shared/widgets/show_snackbar.dart';
 import 'package:cylinders/core/shared/widgets/top_image_and_name.dart';
 import 'package:cylinders/extensions/app_extentions.dart';
@@ -23,6 +24,7 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
   double resultM = 0;
   // double targetedValue = 0.0;
   double result = 0;
+  bool showInvalidInputMessage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -209,40 +211,14 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                           SizedBox(
                             height: 30,
                           ),
-                          InkWell(
-                            onTap: () {
-                              // result = keyCubit.calculateResult(
-                              //   isM: isM,
-                              //   targetedValue: textController.text,
-                              // );
-                              // if (validations()) {
+                          DefaultButton(
+                            label: 'احسب',
+                            onPressed: () {
                               calculateResults();
-                              // var f = keyCubit.calculateResult(
-                              //     isM: isM,
-                              //     targetedValue: textController.text);
-                              // print(f);
-                              // }
-                              //  else {
-                              //   resultKey = keyCubit.calculateResult(
-                              //     isM: isM,
-                              //     targetedValue: textController.text,
-                              //   );
-                              // }
-                              // }
                             },
-                            child: SizedBox(
-                              height: 50,
-                              width: context.width / 2,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  color: AppColors.lightGreenColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: const Center(
-                                  child: Text('احسب'),
-                                ),
-                              ),
-                            ),
+                            width: context.width / 2,
+                            paddingValue: 15,
+                            gradient: AppColors.gradientPurple,
                           ),
                         ],
                       ),
@@ -252,8 +228,8 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                     height: context.height * 0.7,
                     child: Container(
                       width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: AppColors.whiteColor,
+                      decoration: BoxDecoration(
+                        color: AppColors.greyColor,
                         borderRadius: BorderRadiusDirectional.only(
                           topStart: Radius.circular(40),
                           topEnd: Radius.circular(40),
@@ -261,6 +237,23 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                       ),
                       child: Column(
                         children: [
+                          // result <= 0
+                          //     ? Column(
+                          //         children: [
+                          //           SizedBox(
+                          //             height: context.height * 0.2,
+                          //           ),
+                          //           Text(
+                          //             'المقاس ده مش ستاندرد',
+                          //             style:
+                          //                 context.textList.bodyMedium!.copyWith(
+                          //               color: AppColors.whiteColor,
+                          //               fontSize: 36,
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       )
+                          //     : SizedBox(),
                           // if (resultKey > 0 || resultM > 0)
                           if (result > 0)
                             Column(
@@ -271,31 +264,13 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                                       ? '  mm $result'
                                       : '  مفتاح رقم ${result.toStringAsFixed(0)}',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    // color: AppColors.blackTextColor,
                                     fontSize: 36,
                                   ),
                                 ),
+
                                 SizedBox(
-                                  height: context.height * 0.02,
-                                ),
-                                // SizedBox(
-                                //   width: context.width * 0.7,
-                                //   child: Text(
-                                //     // '~ ${resultM.toStringAsFixed(1)}',
-                                //     !isM
-                                //         ? 'مقاس المفتاح بييجي عن طريق قيمة ال M و بتجمع عليها 50% او نصف قيمة ال M'
-                                //         : 'ال M بيجي عن طريق قسمة مقاس المفتاح علي 3 و هيطلع ناتج نضربه في 2 يبقي ده ال M اللي انت عايزه ',
-                                //     maxLines: 4,
-                                //     overflow: TextOverflow.ellipsis,
-                                //     textAlign: TextAlign.center,
-                                //     style: context.textList.bodyMedium!.copyWith(
-                                //       color: AppColors.blackTextColor,
-                                //       fontSize: 18,
-                                //     ),
-                                //   ),
-                                // ),
-                                SizedBox(
-                                  height: context.height * 0.15,
+                                  height: context.height * 0.25,
                                 ),
                                 // Spacer(),
                                 SizedBox(
@@ -308,8 +283,8 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                                     textAlign: TextAlign.center,
                                     style:
                                         context.textList.bodyMedium!.copyWith(
-                                      color: AppColors.blackTextColor
-                                          .withOpacity(.4),
+                                      color:
+                                          AppColors.whiteColor.withOpacity(.4),
                                       fontSize: 15,
                                     ),
                                   ),
@@ -349,14 +324,21 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
       if (valueIn == null || valueIn == 0 || valueIn < 3) {
         return;
       }
+
       setState(() {
         if (isM) {
           reference.forEach((key, value) {
             if (valueIn == value) {
               result = key;
             }
+            // else {
+            // showSnackBar(snackText: 'المقاس ده مش ستاندرد', context: context);
+            // }
           });
         } else {
+          if (reference[valueIn] == null) {
+            return;
+          }
           result = reference[valueIn]!;
         }
       });
