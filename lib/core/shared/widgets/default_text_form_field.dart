@@ -16,6 +16,7 @@ class DefaultTextFormField extends StatelessWidget {
     this.minLines,
     this.maxLines,
     this.textAlign,
+    this.darkTheme = false,
   });
 
   // bool showSnackBarErrorText = true;
@@ -30,6 +31,8 @@ class DefaultTextFormField extends StatelessWidget {
   TextInputType? inputType = TextInputType.text;
   TextInputAction? inputAction = TextInputAction.next;
   TextAlign? textAlign = TextAlign.center;
+  Color? backColor = AppColors.whiteColor;
+  bool darkTheme = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class DefaultTextFormField extends StatelessWidget {
         controller: controller,
         readOnly: isReadOnly,
         style: context.textList.bodyMedium!.copyWith(
-          color: AppColors.blackTextColor,
+          color: darkTheme ? AppColors.whiteColor : AppColors.blackTextColor,
         ),
         validator: validator,
         // validator: (value) {
@@ -65,16 +68,19 @@ class DefaultTextFormField extends StatelessWidget {
         // },
         textAlign: textAlign ?? TextAlign.start,
 
-        // keyboardType:
-        //     const TextInputType.numberWithOptions(),
+        keyboardType: inputType,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide.none,
           ),
+          filled: true,
+          fillColor: darkTheme ? AppColors.greyColor : AppColors.whiteColor,
           labelText: label,
           labelStyle: context.textList.bodyMedium!.copyWith(
-            color: AppColors.blackTextColor.withOpacity(.5),
+            color: darkTheme
+                ? AppColors.whiteColor
+                : AppColors.blackTextColor.withOpacity(.5),
           ),
         ),
       ),
