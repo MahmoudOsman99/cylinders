@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cylinders/core/shared/strings/app_assets.dart';
 import 'package:cylinders/core/shared/strings/app_colors.dart';
 import 'package:cylinders/core/shared/widgets/default_button.dart';
@@ -15,6 +17,7 @@ class GetGapScreen extends StatefulWidget {
 
 class _GetGapScreenState extends State<GetGapScreen> {
   // List<bool> selections = List.generate(2, (index) => false);
+
   final formKey = GlobalKey<FormState>();
   int selectedOption = 1;
   double gapVlaue = 0;
@@ -273,31 +276,32 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 Text(
                                   'القطر الاستاندرد:     275',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
+
                                 Text(
                                   'قطر السلندر المراد:     ${double.tryParse(radiusController.text)}',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'ناتج الطرح:     ${minus.toStringAsFixed(1)}',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'الرقم اللي بنطرح منه الناتج:  $minusNum',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'الجاب:     ${gapVlaue.toStringAsFixed(1)}',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 // if (isFlat)
@@ -312,7 +316,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 Text(
                                   ' لو فلات بنزود:     6mm',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 SizedBox(
@@ -323,10 +327,13 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                     overflow: TextOverflow.ellipsis,
                                     style:
                                         context.textList.bodyMedium!.copyWith(
-                                      color: AppColors.blackTextColor,
+                                      color: AppColors.whiteColor,
                                     ),
                                   ),
                                 ),
+                                // SizedBox(
+                                //   height: 20,
+                                // ),
                               ],
                             ),
                             CircularPercentIndicator(
@@ -336,14 +343,19 @@ class _GetGapScreenState extends State<GetGapScreen> {
                               percent: gapVlaue / 100,
                               center: Text(
                                 "${gapVlaue.toStringAsFixed(1)} mm",
-                                style: context.textList.displayMedium,
+                                style: context.textList.displayMedium!.copyWith(
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
                               footer: Padding(
                                 padding:
                                     const EdgeInsetsDirectional.only(top: 10),
                                 child: Text(
                                   "قيمة الجاب من 33",
-                                  style: context.textList.displayMedium,
+                                  style:
+                                      context.textList.displayMedium!.copyWith(
+                                    color: AppColors.whiteColor,
+                                  ),
                                 ),
                               ),
                               circularStrokeCap: CircularStrokeCap.round,
@@ -351,7 +363,11 @@ class _GetGapScreenState extends State<GetGapScreen> {
                             ),
                           ],
                         ),
-                      if (gapVlaue > 0) const Divider(),
+                      if (gapVlaue > 0)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Divider(),
+                        ),
                       SizedBox(
                         height: context.height * 0.03,
                       ),
@@ -366,31 +382,31 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                 Text(
                                   'قطر من 275 : 268 يبقي: 48 وردة',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'قطر من 268 : 260 يبقي: 46 وردة',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'قطر من 260 : 255 يبقي: 44 وردة',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'قطر من 255 : 250 يبقي:  42 وردة',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 Text(
                                   'قطر اقل من 250 يبقي:    40 وردة',
                                   style: context.textList.bodyMedium!.copyWith(
-                                    color: AppColors.blackTextColor,
+                                    color: AppColors.whiteColor,
                                   ),
                                 ),
                                 SizedBox(
@@ -399,7 +415,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                     ' لو فلات بنزود:      2 وردة سبرينج عشان فرق الجاب',
                                     style:
                                         context.textList.bodyMedium!.copyWith(
-                                      color: AppColors.blackTextColor,
+                                      color: AppColors.whiteColor,
                                     ),
                                   ),
                                 ),
@@ -407,12 +423,12 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                   SizedBox(
                                     width: context.width / 2,
                                     child: Text(
-                                      ' و قطر الفلات اكبر من 270 يبقي تخلي التكايات 48 و تحط ورده خارجيه تحت التكاية عشان متعملش قفزه عشان بيتم فتح الجاب اكتر من 7 مم في بعض الاحيان ع حسب الانتاج',
+                                      ' و قطر الفلات اكبر من 275 يبقي تخلي التكايات 48 و تحط ورده خارجيه تحت التكاية عشان متعملش قفزه عشان بيتم فتح الجاب اكتر من 7 مم في بعض الاحيان ع حسب الانتاج',
                                       // maxLines: 6,
                                       // overflow: TextOverflow.ellipsis,
                                       style:
                                           context.textList.bodyMedium!.copyWith(
-                                        color: AppColors.blackTextColor,
+                                        color: AppColors.whiteColor,
                                       ),
                                     ),
                                   ),
@@ -432,7 +448,9 @@ class _GetGapScreenState extends State<GetGapScreen> {
                               percent: gapVlaue / 100,
                               center: Text(
                                 "spring $springCount",
-                                style: context.textList.displayMedium,
+                                style: context.textList.displayMedium!.copyWith(
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
                               footer: Padding(
                                 padding:
@@ -442,6 +460,7 @@ class _GetGapScreenState extends State<GetGapScreen> {
                                   style:
                                       context.textList.displayMedium!.copyWith(
                                     height: 1.5,
+                                    color: AppColors.whiteColor,
                                   ),
                                   maxLines: 2,
                                   textAlign: TextAlign.center,

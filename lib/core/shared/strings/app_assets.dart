@@ -10,7 +10,8 @@ class AppAssets {
   // Images
   static const smokeImage = 'assets/images/troubleshoots/1/smoke.jpg';
   static const smoke2Image = 'assets/images/troubleshoots/1/smoke2.jpg';
-  static const myImage = 'assets/images/me.jpg';
+  // static const myImage = 'assets/images/me.jpg';
+  static const myImage = 'assets/images/myImage.jpeg';
 
   static const couplingImage = 'assets/images/coupling.jpg';
   static const lebranceImage = 'assets/images/lebrance.jpg';
