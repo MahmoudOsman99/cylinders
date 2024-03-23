@@ -186,48 +186,52 @@ class _GetGapScreenState extends State<GetGapScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
-                      DefaultButton(
-                        label: 'احسب الجاب',
-                        gradient: AppColors.gradientPurple,
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            radiusCylinder =
-                                double.tryParse(radiusController.text)!;
-                            if (radiusCylinder > 275 || radiusCylinder < 244) {
-                              return;
-                            }
-                            setState(() {
-                              minus = standardRadius - radiusCylinder;
-                              gapVlaue = minusNum - minus;
-                              if (isFlat) {
-                                gapVlaue += 6;
+                      SizedBox(
+                        // height: 30,
+                        child: DefaultButton(
+                          label: 'احسب الجاب',
+                          gradient: AppColors.gradientPurple,
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              radiusCylinder =
+                                  double.tryParse(radiusController.text)!;
+                              if (radiusCylinder > 275 ||
+                                  radiusCylinder < 244) {
+                                return;
                               }
-                            });
+                              setState(() {
+                                minus = standardRadius - radiusCylinder;
+                                gapVlaue = minusNum - minus;
+                                if (isFlat) {
+                                  gapVlaue += 6;
+                                }
+                              });
 
-                            if (radiusCylinder <= 275 &&
-                                radiusCylinder >= 268) {
-                              springCount = 48;
-                            } else if (radiusCylinder < 268 &&
-                                radiusCylinder >= 260) {
-                              springCount = 46;
-                            } else if (radiusCylinder < 260 &&
-                                radiusCylinder >= 255) {
-                              springCount = 44;
-                            } else if (radiusCylinder < 255 &&
-                                radiusCylinder >= 250) {
-                              springCount = 42;
-                            } else {
-                              springCount = 40;
+                              if (radiusCylinder <= 275 &&
+                                  radiusCylinder >= 268) {
+                                springCount = 48;
+                              } else if (radiusCylinder < 268 &&
+                                  radiusCylinder >= 260) {
+                                springCount = 46;
+                              } else if (radiusCylinder < 260 &&
+                                  radiusCylinder >= 255) {
+                                springCount = 44;
+                              } else if (radiusCylinder < 255 &&
+                                  radiusCylinder >= 250) {
+                                springCount = 42;
+                              } else {
+                                springCount = 40;
+                              }
+                              if (isFlat && springCount != 48) {
+                                springCount += 2;
+                              }
                             }
-                            if (isFlat && springCount != 48) {
-                              springCount += 2;
-                            }
-                          }
-                        },
-                        width: context.width / 2,
-                        paddingValue: 15,
+                          },
+                          width: context.width / 2,
+                          paddingValue: 10,
+                        ),
                       ),
                       // InkWell(
                       //   onTap: ,
@@ -250,19 +254,22 @@ class _GetGapScreenState extends State<GetGapScreen> {
                 ),
               ),
               SizedBox(
+                height: 10,
+              ),
+              SizedBox(
                 height: context.height * 0.7,
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: AppColors.greyColor,
-                    borderRadius: BorderRadiusDirectional.only(
+                    borderRadius: const BorderRadiusDirectional.only(
                       topStart: Radius.circular(40),
                       topEnd: Radius.circular(40),
                     ),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       if (gapVlaue > 0)

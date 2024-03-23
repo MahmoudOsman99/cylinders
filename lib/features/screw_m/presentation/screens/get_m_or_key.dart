@@ -217,20 +217,23 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                               calculateResults();
                             },
                             width: context.width / 2,
-                            paddingValue: 15,
+                            paddingValue: 10,
                             gradient: AppColors.gradientPurple,
                           ),
+                          // SizedBox(
+                          //   height: 10,
+                          // )
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: context.height * 0.7,
+                    // height: context.height * 0.48,
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: AppColors.greyColor,
-                        borderRadius: BorderRadiusDirectional.only(
+                        borderRadius: const BorderRadiusDirectional.only(
                           topStart: Radius.circular(40),
                           topEnd: Radius.circular(40),
                         ),
@@ -275,6 +278,7 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                                 // Spacer(),
                                 SizedBox(
                                   width: context.width * 0.8,
+                                  height: context.height * 0.15,
                                   child: Text(
                                     // '~ ${resultM.toStringAsFixed(1)}',
                                     'كل النتائج اللي موجود في البرنامج ده عباره عن اجتهاد شخصي مني و معرضه للخطأ و اذا وجد خطأ ارجوا المعذره و ابلاغي 01000249042 و سوف يتم التصحيح و ذكر اسم المصحح لو عايز ',
@@ -289,6 +293,7 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
                                     ),
                                   ),
                                 ),
+                                // Spacer(),
                               ],
                             ),
                         ],
@@ -403,5 +408,17 @@ class _GetMOrScrewState extends State<GetMOrScrew> {
     36: 55,
     42: 65,
     48: 75,
+    52: 85,
+    56: 95,
+    60: 105,
+    64: 115,
+    68: 125,
+    72: 135,
+    76: 145,
+    80: 155,
+    85: 170,
+    90: 185,
+    95: 200,
+    100: 215
   };
 }

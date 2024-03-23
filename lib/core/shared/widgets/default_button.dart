@@ -24,6 +24,7 @@ class DefaultButton extends StatelessWidget {
       onTap: onPressed,
       child: SizedBox(
         width: width,
+        // height: 2, ///////////////////////////////////////
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
